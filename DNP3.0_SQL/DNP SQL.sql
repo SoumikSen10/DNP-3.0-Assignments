@@ -39,16 +39,18 @@ CREATE TABLE CountryLanguage(
 INSERT INTO country (Code, Name, Continent, Region, SurfaceArea, IndepYear, Population, 
 LifeExpectancy, GNP, GNPOld, LocalName, GovernmentForm, HeadOfState, Capital, Code2)
 VALUES
-('USA', 'United States', 'North America', 'Northern America', 9372610, 1776, 331002651, 78.93, 
-21137518, 20611800, 'United States', 'Federal Republic', 'Joe Biden', 3813, 'US'),
-('CHN', 'China', 'Asia', 'Eastern Asia', 9596960, 1949, 1439323776, 76.91, 14140163, 13894800, 
-'Zhongguo', 'Communist State', 'Xi Jinping', 1892, 'CN'),
-('JPN', 'Japan', 'Asia', 'Eastern Asia', 377975, 660, 126476461, 84.63, 5064873, 4909000, 'Nihon', 
-'Constitutional Monarchy', 'Naruhito', 1534, 'JP'),
-('DEU', 'Germany', 'Europe', 'Western Europe', 357114, 1955, 83166711, 81.33, 3845630, 3693200, 
-'Deutschland', 'Federal Republic', 'Frank-Walter Steinmeier', 3068, 'DE'),
-('BRA', 'Brazil', 'South America', 'South America', 8515767, 1822, 212559417, 75.88, 2055500, 2011780, 
-'Brasil', 'Federal Republic', 'Jair Bolsonaro', 2110, 'BR');
+('USA', 'United States', 'North America', 'Northern America', 9372610, 1776, 331002651, 78.93,21137518, 20611800, 'United States', 'Federal Republic', 'Joe Biden', 3813, 'US'),
+('CHN', 'China', 'Asia', 'Eastern Asia', 9596960, 1949, 1439323776, 76.91, 14140163, 13894800,'Zhongguo', 'Communist State', 'Xi Jinping', 1892, 'CN'),
+('JPN', 'Japan', 'Asia', 'Eastern Asia', 377975, 660, 126476461, 84.63, 5064873, 4909000, 'Nihon','Constitutional Monarchy', 'Naruhito', 1534, 'JP'),
+('DEU', 'Germany', 'Europe', 'Western Europe', 357114, 1955, 83166711, 81.33, 3845630, 3693200,'Deutschland', 'Federal Republic', 'Frank-Walter Steinmeier', 3068, 'DE'),
+('BRA', 'Brazil', 'South America', 'South America', 8515767, 1822, 212559417, 75.88, 2055500, 2011780,'Brasil', 'Federal Republic', 'Jair Bolsonaro', 2110, 'BR'),
+('IND', 'India', 'Asia', 'Southern Asia', 3287263, 1947, 1380004385, 69.73, 2875142, 2739850, 'Bharat', 'Federal Republic', 'Ram Nath Kovind', 1109, 'IN'),
+('FRA', 'France', 'Europe', 'Western Europe', 551695, 843, 65273511, 82.66, 2715518, 2582500, 'France', 'Republic', 'Emmanuel Macron', 1234, 'FR'),
+('RUS', 'Russia', 'Europe', 'Eastern Europe', 17098242, 1991, 145912025, 72.58, 1637891, 1537200, 'Rossiya', 'Federation', 'Vladimir Putin', 7890, 'RU'),
+('ZAF', 'South Africa', 'Africa', 'Southern Africa', 1219090, 1910, 59308690, 63.4, 351432, 315800, 'South Africa', 'Republic', 'Cyril Ramaphosa', 9012, 'ZA'),
+('ARG', 'Argentina', 'South America', 'South America', 2780400, 1816, 45195777, 76.67, 449663, 400200, 'Argentina', 'Federal Republic', 'Alberto Fernández', 5678, 'AR'),
+('AUS', 'Australia', 'Australia', 'Australia', 7692024, 1901, 25499884, 82.9, 1392687, 1339754, 'Australia', 'Federal Parliamentary Constitutional Monarchy', 'Anthony Albanese', 8901, 'AU'),
+('GBR', 'United Kingdom', 'Europe', 'Northern Europe', 243610, 1066, 67886011, 81.32, 2825208, 2702204, 'United Kingdom', 'Constitutional Monarchy', 'Charles III', 23456, 'GB');
 
 
 INSERT INTO city (ID, Name, CountryCode, District, Population)
@@ -57,7 +59,23 @@ VALUES
 (1892, 'Beijing', 'CHN', 'Beijing', 21542000),
 (1534, 'Tokyo', 'JPN', 'Tokyo', 13929286),
 (3068, 'Berlin', 'DEU', 'Berlin', 3644826),
-(2110, 'Brasília', 'BRA', 'Federal District', 3055149);
+(2110, 'Brasília', 'BRA', 'Federal District', 3055149),
+(1109, 'New Delhi', 'IND', 'Delhi', 31870000),
+(1234, 'Paris', 'FRA', 'Île-de-France', 2148327),
+(7890, 'Moscow', 'RUS', 'Moscow', 12506468),
+(9012, 'Pretoria', 'ZAF', 'Gauteng', 741651),
+(5678, 'Buenos Aires', 'ARG', 'Buenos Aires', 3075646),
+(2345, 'Mumbai', 'IND', 'Maharashtra', 20411000),
+(3456, 'Los Angeles', 'USA', 'California', 3979576),
+(4567, 'Chicago', 'USA', 'Illinois', 2716000),
+(5679, 'Paris', 'USA', 'Texas', 25000),
+(6789, 'London', 'GBR', 'England', 8982000),
+(7891, 'Birmingham', 'GBR', 'England', 1141816),
+(8902, 'Cape Town', 'ZAF', 'Western Cape', 433688),
+(9013, 'Rio de Janeiro', 'BRA', 'Rio de Janeiro', 6747815),
+(9014, 'São Paulo', 'BRA', 'São Paulo', 12330000),
+(8903, 'Sydney', 'AUS', 'New South Wales', 5230330);
+
 
 
 INSERT INTO countrylanguage (CountryCode, Language, IsOfficial, Percentage)
@@ -68,75 +86,143 @@ VALUES
 ('JPN', 'Japanese', 'T', 99.0),
 ('DEU', 'German', 'T', 95.0),
 ('BRA', 'Portuguese', 'T', 98.0),
-('BRA', 'Spanish', 'F', 1.0);
-
-#SELECT * FROM country;
-#SELECT * FROM city;
-#SELECT * FROM countrylanguage;
-
-# Query 1
-SELECT Name FROM Country WHERE Continent = "Asia";
-
-# Query 2
-SELECT Name, Population FROM City ORDER BY population  DESC LIMIT 5;
-
-# Query 3
-SELECT NAME, Population FROM Country WHERE Population > 100000000;
-
-# Query 4
-SELECT Language FROM countryLanguage WHERE CountryCode = 'JPN';
-
-# Query 5
-# Find the capital city of the country with the largest surface area.
-SELECT City.Name AS CapitalCity FROM country JOIN city ON country.Capital = city.ID ORDER BY country.SurfaceArea DESC LIMIT 1;
-
-# Query 6
-# List all cities in Japan.
-SELECT Name FROM city WHERE CountryCode = 'JPN';
-
-# Query 7
-# Find the average life expectancy of countries in Europe
-SELECT AVG(LifeExpectancy) AS AverageLifeExpectancy FROM country WHERE Continent = 'Europe' ;
-
-# Query 8
-# Find the number of official languages spoken in each country
-SELECT CountryCode,COUNT(Language) FROM countrylanguage WHERE IsOfficial = 'T' GROUP BY CountryCode;
-
-# Query 9
-# List countries with a life expectancy greater than the world average.
-SELECT Name,LifeExpectancy FROM country WHERE LifeExpectancy >  (SELECT AVG(LifeExpectancy) FROM country) ;
-
-# Query 10
-# Find the total population of all cities in India.
-SELECT SUM(Population) FROM city WHERE CountryCode = 'IND';
-
-# Query 11
-# List the names of all capital cities along with their country's name.
-SELECT city.Name AS City ,country.Name AS Country FROM city JOIN country ON city.CountryCode=country.Code;
-
-# Query 12
-# Find the names of countries where the official language is 'Spanish'.
-SELECT country.Name FROM country JOIN countrylanguage ON country.Code=countrylanguage.CountryCode WHERE countrylanguage.IsOfficial='T' AND countrylanguage.Language='Spanish';
-
-# Query 13
-# List the top 10 countries by population density (Population/SurfaceArea).
-SELECT Name,(Population/SurfaceArea) AS PopulationDensity FROM country ORDER BY (Population/SurfaceArea) DESC LIMIT 10;
-
-# Query 14
-# Find the names and populations of cities in countries with a life expectancy greater than 75 years.
-SELECT city.Name,city.Population FROM city JOIN country ON country.Code=city.CountryCode WHERE country.LifeExpectancy>75;
-
-# Query 15
-# List all countries and their corresponding languages, sorted by country name.
-SELECT country.Name,countrylanguage.Language FROM country JOIN countrylanguage ON countrylanguage.CountryCode = country.Code ORDER BY country.Name;
-
-# Query 16
-# Find the countries that have a city named 'Paris'.
-SELECT country.Name FROM country JOIN city ON country.Code = city.CountryCode WHERE city.Name = 'Paris';
+('BRA', 'Spanish', 'F', 1.0),
+('IND', 'Hindi', 'T', 44.0),
+('IND', 'English', 'F', 12.0),
+('FRA', 'French', 'T', 100.0),
+('RUS', 'Russian', 'T', 99.0),
+('ZAF', 'Afrikaans', 'T', 13.5),
+('ZAF', 'English', 'T', 9.6),
+('ARG', 'Spanish', 'T', 98.0),
+('ARG', 'Italian', 'F', 2.5),
+('AUS', 'English', 'T', 78.5),
+('GBR', 'English', 'T', 98.0);
 
 
-# Query 17
-# List the names of the countries that have more than 5 official languages
+
+#Q1
+SELECT Name FROM country
+WHERE Continent = 'Asia';
+
+
+#Q2
+SELECT Name, Population 
+FROM city 
+ORDER BY Population DESC 
+LIMIT 5;
+
+
+#Q3
+SELECT Name, Population
+FROM country
+WHERE Population > 100000000;
+
+
+
+#Q4
+SELECT Language 
+FROM countrylanguage 
+WHERE CountryCode = 'JPN'
+GROUP BY Language;
+
+
+
+#Q5
+SELECT city.Name AS CapitalCity, country.Name AS CountryName, country.SurfaceArea
+FROM city
+JOIN country ON city.ID = country.Capital
+ORDER BY country.SurfaceArea DESC 
+LIMIT 1;
+
+
+#Q6
+SELECT Name, CountryCode, District
+FROM city
+WHERE CountryCode = 'JPN';
+
+
+
+#Q7
+SELECT AVG(LifeExpectancy) AS Average_Life_Expectancy
+FROM country
+WHERE Continent = 'Europe';
+
+
+
+#Q8
+SELECT CountryCode, COUNT(Language) AS Number_Of_Official_Languages
+FROM countrylanguage
+WHERE IsOfficial = 'T'
+GROUP BY CountryCode;
+
+
+
+#Q9
+SELECT Name, LifeExpectancy
+FROM country
+WHERE LifeExpectancy > (SELECT AVG(LifeExpectancy) FROM country);
+
+
+
+#Q10
+SELECT SUM(Population) AS Total_Population_Of_Cities_In_India
+FROM city
+WHERE CountryCode = 'IND';
+
+
+
+
+#Q11
+SELECT city.Name AS Capital, country.Name AS Country_Name
+FROM city
+JOIN country ON city.CountryCode = country.Code;
+
+
+
+
+#Q12
+SELECT country.Name as Country_Name
+FROM country
+JOIN countrylanguage ON country.Code = countrylanguage.CountryCode
+WHERE countrylanguage.Language = 'Spanish' AND countrylanguage.IsOfficial = 'T'
+GROUP BY country.Name;
+
+
+#Q13
+SELECT Name AS CountryName, Population / SurfaceArea AS PopulationDensity
+FROM country
+ORDER BY PopulationDensity DESC
+LIMIT 10;
+
+
+
+
+#Q14
+SELECT city.Name AS City, city.Population
+FROM city
+JOIN country ON city.CountryCode = country.Code
+WHERE country.LifeExpectancy > 75;
+
+
+
+
+#Q15
+SELECT country.Name AS CountryName, countrylanguage.Language
+FROM country
+JOIN countrylanguage ON country.Code = countrylanguage.CountryCode
+ORDER BY country.Name;
+
+
+
+#16
+SELECT country.Name
+FROM country
+JOIN city ON country.Code = city.CountryCode
+WHERE city.Name = 'Paris';
+
+
+
+#17
 SELECT country.Name
 FROM country
 JOIN countrylanguage ON country.Code = countrylanguage.CountryCode
@@ -145,59 +231,89 @@ GROUP BY country.Name
 HAVING COUNT(countrylanguage.Language) > 5;
 
 
-# Query 18
-# Find the total population of each continent.
-SELECT Continent,SUM(Population) AS TotalPopulation FROM country GROUP BY Continent;
+
+#Q18
+SELECT Continent, SUM(Population) AS Total_Population
+FROM country
+GROUP BY Continent;
 
 
-# Query 19
-# List the countries where the capital city's population is more than 10% of the country's total population.
-SELECT country.Name FROM country JOIN city ON city.CountryCode = Country.Code WHERE city.Population > 0.1*country.Population;
 
 
-# Query 20
-# Find the average life expectancy for each continent
-SELECT Continent,AVG(LifeExpectancy) AS AverageLifeExpectancy FROM country GROUP BY Continent;
+#Q19
+SELECT country.Name
+FROM country
+JOIN city ON country.Capital = city.ID
+WHERE city.Population > (country.Population * 0.10);
 
 
-# Query 21
-# List the cities that are capitals of countries in South America
-SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Continent = 'South America';
 
 
-# Query 22
-# Find the countries that do not have any cities with a population over 1 million.
-SELECT country.Name AS CountryName,city.Name AS CityName,city.Population AS cityPopulation FROM country JOIN city ON city.CountryCode = country.Code WHERE city.Population < 1000000;
+#20
+SELECT Continent, AVG(LifeExpectancy) AS Average_Life_Expectancy
+FROM country
+GROUP BY Continent;
 
-# ---------------------------------------------------------------------------------------------
-# Query 23
-# List the countries where the sum of the populations of all cities is more than the country's population
-#SELECT country.Name AS CountryName FROM country JOIN city ON city.CountryCode = country.Code WHERE SUM(city.Population) > country.Population;
 
-SELECT c.Name AS CountryName
-FROM country c
+
+
+#21
+SELECT city.Name
+FROM city
+JOIN country ON city.ID = country.Capital
+WHERE country.Continent = 'South America';
+
+
+
+
+#22
+SELECT country.Name
+FROM country
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM city
+    WHERE city.CountryCode = country.Code AND city.Population > 1000000
+);
+
+
+
+
+#23
+SELECT country.Name
+FROM country
 JOIN (
     SELECT CountryCode, SUM(Population) AS TotalCityPopulation
     FROM city
     GROUP BY CountryCode
-) AS city_population ON c.Code = city_population.CountryCode
-WHERE city_population.TotalCityPopulation > c.Population;
-#-----------------------------------------------------------------------------------------------------------------------
-
-# Query 24
-# Find the country with the highest number of cities.
-SELECT country.Name As Country,COUNT(city.ID) FROM country JOIN city ON city.CountryCode = country.Code GROUP BY country.Name ORDER BY COUNT(city.ID) DESC LIMIT 1;
+) AS city_totals ON country.Code = city_totals.CountryCode
+WHERE city_totals.TotalCityPopulation > country.Population;
 
 
-# Query 25
-# List the countries where the official language is not English but is spoken by more than 50% of the population.
-SELECT country.Name As Country FROM country JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE countrylanguage.Language!='English' AND countrylanguage.IsOfficial='T' AND countrylanguage.Percentage > 50;
 
 
-# Query 26
-# Classify countries into population size categories: 'Small' (population < 1 million), 'Medium' (1 million <= population < 10 million), 
-# and 'Large' (population >= 10 million).
 
+#24
+SELECT country.Name, COUNT(city.ID) AS NumberOfCities
+FROM country
+JOIN city ON country.Code = city.CountryCode
+GROUP BY country.Name
+ORDER BY NumberOfCities DESC
+LIMIT 1;
+
+
+
+
+#25
+SELECT country.Name
+FROM country
+JOIN countrylanguage ON country.Code = countrylanguage.CountryCode
+WHERE countrylanguage.IsOfficial = 'T'
+AND countrylanguage.Language != 'English'
+AND countrylanguage.Percentage > 50;
+
+
+
+#26
 SELECT Name,
        Population,
        CASE
@@ -208,41 +324,38 @@ SELECT Name,
 FROM country;
 
 
-# Query 27
-# Determine the continent's GDP category: 'Low' (GNP < 100 billion), 'Medium' (100 billion <= GNP 
-# < 1 trillion), and 'High' (GNP >= 1 trillion).
 
-SELECT Continent,GNP,
-	             CASE 
-                     WHEN GNP <100000000000 THEN 'Low'
-                     WHEN GNP >=100000000000 AND GNP<1000000000000 THEN 'Medium'
-                     ELSE 'High'
-                     END AS GDPCategory
-FROM country;  
-
-
-# Query 28
-#  Label cities as 'Small' (population < 100,000), 'Medium' (100,000 <= population < 1 million), or 
-#  'Large' (population >= 1 million)     
-
-SELECT Name,Population,
-	             CASE 
-                     WHEN Population <10000 THEN 'Small'
-                     WHEN Population >=100000 AND Population<1000000 THEN 'Medium'
-                     ELSE 'High'
-                     END AS PopulationLevel
-FROM city; 
+#27
+SELECT Continent,
+       SUM(GNP) AS TotalGNP,
+       CASE 
+           WHEN SUM(GNP) < 100000000000 THEN 'Low'
+           WHEN SUM(GNP) >= 100000000000 AND SUM(GNP) < 1000000000000 THEN 'Medium'
+           ELSE 'High'
+       END AS GDPCategory
+FROM country
+GROUP BY Continent;
 
 
-# Query 29
-# Classify countries based on life expectancy: 'Low' (life expectancy < 50), 'Average' (50 <= life 
-# expectancy < 75), and 'High' (life expectancy >= 75)       
 
-SELECT Name,LifeExpectancy,
-                   CASE
-                        WHEN LifeExpectancy<50 THEN 'Low'
-                        WHEN LifeExpectancy>=50 AND LifeExpectancy<75 THEN 'Average'
-                        ELSE 'High'
-                        END AS LifeExpectancyMeasure
-FROM country;                        
+#28
+SELECT Name,
+       Population,
+       CASE
+           WHEN Population < 100000 THEN 'Small'
+           WHEN Population >= 100000 AND Population < 1000000 THEN 'Medium'
+           ELSE 'Large'
+       END AS CitySizeCategory
+FROM city;
 
+
+
+#29
+SELECT Name,
+       LifeExpectancy,
+       CASE
+           WHEN LifeExpectancy < 50 THEN 'Low'
+           WHEN LifeExpectancy >= 50 AND LifeExpectancy < 75 THEN 'Average'
+           ELSE 'High'
+       END AS LifeExpectancyCategory
+FROM country;
