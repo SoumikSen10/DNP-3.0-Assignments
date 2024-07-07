@@ -23,12 +23,8 @@ public class ConsecutiveSum
         System.out.print("Enter the number : ");
         int N = in.nextInt();
         List<List<Integer>> consecutives = findConsecutives(N);
-
         System.out.println("All possible consecutives numbers that add upto "+N+" are: ");
-        for(List<Integer> consecutive : consecutives)
-        {
-            System.out.println(consecutive);
-        }
+        System.out.println(consecutives);
     }
 
     private static List<List<Integer>> findConsecutives(int N) {
